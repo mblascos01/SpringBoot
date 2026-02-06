@@ -11,24 +11,7 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 
-        // DEFINICIÓN DEL BEAN
-        @Bean
-        public RestClient.Builder restClientBuilder() {
-            return RestClient.builder();
-            // Spring guarda este objeto y lo reutiliza
-        }
-
-        // USO DEL BEAN (inyección automática)
-        @Bean
-        public ApplicationRunner runner(RestClient.Builder builder) {
-            // ⬆️ Spring inyecta automáticamente el Builder
-            return args -> {
-                RestClient client = builder
-                        .baseUrl("http://localhost:8080")
-                        .build();
-            };
-        }
-		SpringApplication.run(DemoApplication.class, args);
-	}
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
 }
